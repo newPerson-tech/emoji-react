@@ -18,11 +18,25 @@ const EmojiVoting = () => {
     return initialVotes;
   });
 
+  const [topEmoji, setTopEmoji] = useState("");
+
   const handleVote = (emoji) => {
     setVotes((prevVotes) => ({
       ...prevVotes,
       [emoji]: prevVotes[emoji] + 1,
     }));
+  };
+
+  const findTopEmoji = () => {
+    let maxVotes = 0;
+    let topEmoji = "";
+    for (const emoji in votes) {
+      if (votes[emoji] > maxVotes) {
+        maxVotes = votes[emoji];
+        topEmoji = emoji;
+      }
+    }
+    setTopEmoji(topEmoji);
   };
 
   return (
@@ -39,6 +53,14 @@ const EmojiVoting = () => {
           <div className="counter">{votes[item.emoji]}</div>
         </div>
       ))}
+      <div className="button-container">
+        <button onClick={findTopEmoji}>Show Results</button>
+      </div>
+      {topEmoji && (
+        <div className="result">
+          <h2>Top Emoji: {topEmoji}</h2>
+        </div>
+      )}
     </div>
   );
 };
