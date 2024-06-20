@@ -1,0 +1,28 @@
+.emoji {
+  font-size: 2em;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.counter {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.question {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.emoji-container {
+  display: inline-block;
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
